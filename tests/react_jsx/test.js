@@ -232,19 +232,19 @@ class ClassExact_ManyProps extends React.Component<$Exact<Props_ManyProps>> {}
   boolean2={null}
   number={null}
 />;
-<ClassExact_ManyProps // OK: All props are defined. Error for exact types.
+<ClassExact_ManyProps // OK: All props are defined.
   string1="foo"
   string2={'bar'}
   boolean1
   boolean2={false}
   {...{number: 42}}
 />;
-<ClassExact_ManyProps // OK: All props are defined. Error for exact types.
+<ClassExact_ManyProps // OK: All props are defined.
   {...{string1: 'foo', string2: 'bar'}}
   {...{boolean1: true, boolean2: false}}
   {...{number: 42}}
 />;
-<ClassExact_ManyProps // Error: Missing `number`.
+<ClassExact_ManyProps // Error: Missing `number`. Error for exact types.
   {...{string1: 'foo', string2: 'bar'}}
   {...{boolean1: true, boolean2: false}}
 />;
@@ -261,7 +261,7 @@ class ClassExact_ManyProps extends React.Component<$Exact<Props_ManyProps>> {}
   boolean2={false}
   number={42}
 />;
-<ClassExact_ManyProps // Error: `number` cannot be null. Error for exact types.
+<ClassExact_ManyProps // Error: `number` cannot be null.
   boolean1
   boolean2={false}
   number={42}
@@ -418,14 +418,14 @@ const FunctionExact_ManyProps = (props: $Exact<Props_ManyProps>) => any;
   boolean2={null}
   number={null}
 />;
-<FunctionExact_ManyProps // OK: All props are defined. Error for exact types.
+<FunctionExact_ManyProps // OK: All props are defined.
   string1="foo"
   string2={'bar'}
   boolean1
   boolean2={false}
   {...{number: 42}}
 />;
-<FunctionExact_ManyProps // OK: All props are defined. Error for exact types.
+<FunctionExact_ManyProps // OK: All props are defined.
   {...{string1: 'foo', string2: 'bar'}}
   {...{boolean1: true, boolean2: false}}
   {...{number: 42}}
@@ -441,13 +441,13 @@ const FunctionExact_ManyProps = (props: $Exact<Props_ManyProps>) => any;
   boolean2={false}
   {...{number: 42, a: 1, b: 2, c: 3}}
 />;
-<FunctionExact_ManyProps // OK: `number` is overwritten. Error for exact types.
+<FunctionExact_ManyProps // OK: `number` is overwritten.
   {...{string1: 'foo', string2: 'bar', number: (any: ?number)}}
   boolean1
   boolean2={false}
   number={42}
 />;
-<FunctionExact_ManyProps // Error: `number` cannot be null. Error for exact types.
+<FunctionExact_ManyProps // Error: `number` cannot be null.
   boolean1
   boolean2={false}
   number={42}
@@ -543,14 +543,14 @@ const AbstractExact_ManyProps: React.ComponentType<$Exact<Props_ManyProps>>
   boolean2={null}
   number={null}
 />;
-<AbstractExact_ManyProps // OK: All props are defined. Error for exact types.
+<AbstractExact_ManyProps // OK: All props are defined.
   string1="foo"
   string2={'bar'}
   boolean1
   boolean2={false}
   {...{number: 42}}
 />;
-<AbstractExact_ManyProps // OK: All props are defined. Error for exact types.
+<AbstractExact_ManyProps // OK: All props are defined.
   {...{string1: 'foo', string2: 'bar'}}
   {...{boolean1: true, boolean2: false}}
   {...{number: 42}}
@@ -559,20 +559,20 @@ const AbstractExact_ManyProps: React.ComponentType<$Exact<Props_ManyProps>>
   {...{string1: 'foo', string2: 'bar'}}
   {...{boolean1: true, boolean2: false}}
 />;
-<AbstractExact_ManyProps // OK: Extra props are allowed. Error for exact types.
+<AbstractExact_ManyProps // OK: Extra props are allowed.
   string1="foo"
   string2={'bar'}
   boolean1
   boolean2={false}
   {...{number: 42, a: 1, b: 2, c: 3}}
 />;
-<AbstractExact_ManyProps // OK: `number` is overwritten. Error for exact types.
+<AbstractExact_ManyProps // OK: `number` is overwritten.
   {...{string1: 'foo', string2: 'bar', number: (any: ?number)}}
   boolean1
   boolean2={false}
   number={42}
 />;
-<AbstractExact_ManyProps // Error: `number` cannot be null. Error for exact types.
+<AbstractExact_ManyProps // Error: `number` cannot be null.
   boolean1
   boolean2={false}
   number={42}

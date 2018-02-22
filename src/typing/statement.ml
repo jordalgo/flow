@@ -3983,7 +3983,7 @@ and jsx_mk_props cx reason c name attributes children = Ast.JSX.(
         let spread = expression cx argument in
         let obj = eval_props (map, result) in
         let result = mk_spread spread obj in
-        false, SMap.empty, Some result
+        true, SMap.empty, Some result
   ) (true, SMap.empty, None) attributes in
 
   let map =
